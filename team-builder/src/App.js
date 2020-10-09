@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
-import { v4 as uuid } from 'uuid';
-import Teammate from './Teammate';
 import Form from './Form';
+import Teammate from './Teammate';
+import { v4 as uuid } from 'uuid';
 
 
 const initialTeam = [
@@ -11,8 +11,8 @@ const initialTeam = [
     teammate: 'Daniel',
     email: 'daniel@email.com',
     role: 'Full Stack Web Dev',
-  }
-]
+  },
+];
 
 const initialFormValues = {
   teammate: '',
@@ -30,6 +30,7 @@ function App() {
     const { name } = e.target;
     const { value } = e.target;
     setFormValues({ ...formValues, [name]: value });
+  }
   
     const onSubmit = (e) => {
       e.preventDefault();
@@ -57,16 +58,16 @@ function App() {
           values={formValues} 
           onInputChange={onInputChange} 
           onSubmit={onSubmit}/>
-        { team.map((person) => {
+        { team.map(person => {
   
           return(
           <Teammate key={person.id} details={person}/>
-          );
-        }) }
+          )
+        }) 
+      }
       </div>
     );
   }
 
-}
-
 export default App;
+
